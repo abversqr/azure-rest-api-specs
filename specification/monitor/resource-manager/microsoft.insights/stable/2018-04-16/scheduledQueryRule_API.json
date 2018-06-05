@@ -308,7 +308,11 @@
         },
         "location": {
           "type": "string",
-          "description": "Resource location"
+          "description": "Resource location",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ]
         },
         "tags": {
           "additionalProperties": {
@@ -323,7 +327,7 @@
       "x-ms-azure-resource": true,
       "description": "An azure resource object"
     },
-    "LogSearchRuleResource": {
+     "LogSearchRuleResource": {
       "type": "object",
       "allOf": [
         {
@@ -391,7 +395,7 @@
         },
         "queryType": {
           "$ref": "#/definitions/QueryType",
-          "description": "Set value to ResultCount if query should be returning search result count."
+          "description": "Set value to 'ResultCount'"
         }
       },
       "required": [
@@ -432,7 +436,7 @@
           "type": "number"
         },
         "metricTrigger": {
-          "$ref": "#/definitions/MetricTrigger",
+          "$ref": "#/definitions/LogMetricTrigger",
           "description": "Trigger condition for metric query rule"
         }
       },
@@ -463,7 +467,7 @@
       },
       "description": "Azure action group"
     },
-    "MetricTrigger": {
+    "LogMetricTrigger": {
       "type": "object",
       "properties": {
         "thresholdOperator": {
